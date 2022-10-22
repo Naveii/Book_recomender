@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Book Recomender System</title>
+        <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<style>
+    .text-white{
+        color:white
+    }
+
+</style>
+<body style='background-color: black' >
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">My Book Recomender</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/recommend">Recomend</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container">
+        <div class="row row-cols-5">
+            <div class="col-md-12" style="margin-top:30px">
+                <h1 class ="text-white" style="font-size:40px">Top 50 Books</h1>
+            </div>
+
+            {% for i in range(book_name | length) %}
+
+            <div class="col" style="margin-top:30px">
+                <div class="card">
+                    <div class="card-body">
+                        <img class="card-img-top" src="{{ image[i] }}">
+                        <p>{{ book_name[i] }}</p>
+                        <h4>{{ author[i] }}</h4>
+                        <h4>Votes - {{ votes[i] }}</h4>
+                        <h4>Rating - {{ rating[i] }}</h4>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+
+        </div>
+      </div>
+
+</body>
+</html>
